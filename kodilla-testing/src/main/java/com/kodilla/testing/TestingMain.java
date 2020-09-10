@@ -15,20 +15,18 @@ public class TestingMain {
             System.out.println("Error!");
         }
 
-        Calculator calculator = new Calculator(5,8);
-        Integer resultAdd = calculator.add();
-        Integer resultSub = calculator.subtract();
-        int calcA = calculator.getA();
-        int calcB = calculator.getB();
+        Calculator calculator = new Calculator();
+        int resultAdd = calculator.add(5, 10);
+        int resultSub = calculator.subtract(22, 5);
 
-        if(resultAdd.equals(calcA + calcB)){
-            System.out.println("add test Ok");
+        if(resultAdd == 15){
+            System.out.println("test Ok");
         } else {
             System.out.println("Error");
         }
 
-        if(resultSub.equals(calcA - calcB)){
-            System.out.println("subtract test Ok");
+        if(resultSub == 17){
+            System.out.println("test Ok");
         } else {
             System.out.println("Error");
         }
