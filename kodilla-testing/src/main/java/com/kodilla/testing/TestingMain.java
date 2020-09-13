@@ -5,15 +5,6 @@ import com.kodilla.testing.calculator.Calculator;
 
 public class TestingMain {
     public static void main(String[] args) {
-        SimpleUser simpleuser = new SimpleUser("theForumUser");
-
-        String result = simpleuser.getUserName();
-
-        if(result.equals("theForumUser")){
-            System.out.println("test Ok");
-        } else {
-            System.out.println("Error!");
-        }
 
         Calculator calculator = new Calculator();
         int resultAdd = calculator.add(5, 10);
@@ -30,7 +21,5 @@ public class TestingMain {
         } else {
             System.out.println("Error");
         }
-
-
     }
 }
