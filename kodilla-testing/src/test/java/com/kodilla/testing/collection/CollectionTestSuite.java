@@ -34,6 +34,8 @@ class CollectionTestSuite {
         //given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         List<Integer> numbers = new ArrayList<Integer>();
+        List<Integer> resultTable = new ArrayList<Integer>();
+
         for(int i = 0; i <= 200; i++){
             numbers.add(i);
         }
@@ -41,12 +43,13 @@ class CollectionTestSuite {
         List<Integer> result = oddNumbersExterminator.exterminate(numbers);
         //result.add(7);
         //then
-        for (int i = 0; i < result.size(); i++) {
-            if (result.get(i) % 2 != 0){
-                System.out.println(result.get(i));
+        for (Integer value : result) {
+            if (value % 2 != 0) {
                 System.out.println("Error! Value not even");
                 break;
             }
+            resultTable.add(value);
         }
+        Assertions.assertEquals(resultTable,result);
     }
 }
