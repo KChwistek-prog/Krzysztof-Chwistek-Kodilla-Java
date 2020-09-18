@@ -13,20 +13,21 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class WeatherForecastTestSuite {
-    @BeforeEach
-    public void before() {
-        System.out.println("Starting new test.");
-    }
-
-    @AfterEach
-    public void after() {
-        System.out.println("Test ok");
-    }
 
     @Mock
     private Temperatures temperaturesMock;
 
-    private Map<String, Double> generateAverge(Map<String, Double> temperaturesMap) {
+    private static Map<String,Double> tempMap(){
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        return temperaturesMap;
+    }
+
+    private static Map<String, Double>generateAverge(Map<String, Double> temperaturesMap) {
         double avergeTemp;
         int amount = 0;
         double sum = 0;
@@ -35,12 +36,11 @@ class WeatherForecastTestSuite {
             amount++;
         }
         avergeTemp = (sum / amount) - 1;
-
         temperaturesMap.put("Averge", avergeTemp);
         return temperaturesMap;
     }
 
-    private Map<String, Double> generateMedian(Map<String, Double> temperaturesMap) {
+    private static Map<String, Double> generateMedian(Map<String, Double> temperaturesMap) {
         List<Double> seriesValue = new ArrayList<>();
         for (Map.Entry<String, Double> entry : temperaturesMap.entrySet()) {
             seriesValue.add(entry.getValue());
@@ -53,21 +53,24 @@ class WeatherForecastTestSuite {
         } else {
             median = (seriesValue.get(middle - 1) + seriesValue.get(middle) / 2.0);
         }
-        //Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Median", median - 1);
         return temperaturesMap;
+    }
+
+    @BeforeEach
+    public void before() {
+        System.out.println("Starting new test.");
+    }
+
+    @AfterEach
+    public void after() {
+        System.out.println("Test ok");
     }
 
     @Test
     void testCalculateForecastWithMock() {
         //Given
-        Map<String, Double> temperaturesMap = new HashMap<>();
-        temperaturesMap.put("Rzeszow", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        when(temperaturesMock.getTemperatures()).thenReturn(tempMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
@@ -80,15 +83,8 @@ class WeatherForecastTestSuite {
     @Test
     void testMedian() {
         //Given
-        Map<String, Double> temperaturesMap = new HashMap<>();
-        temperaturesMap.put("Rzeszow", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
-        generateMedian(temperaturesMap);
-
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        Map<String,Double>mediana = generateMedian(tempMap());
+        when(temperaturesMock.getTemperatures()).thenReturn(mediana);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
@@ -100,19 +96,10 @@ class WeatherForecastTestSuite {
 
     @Test
     void testAverge() {
-
         //Given
-        Map<String, Double> temperaturesMap = new HashMap<>();
-        temperaturesMap.put("Rzeszow", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
-        generateAverge(temperaturesMap);
-
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        Map<String, Double> averge = generateAverge(tempMap());
+        when(temperaturesMock.getTemperatures()).thenReturn(averge);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
-
 
         //When
         Double temperatureAverge = weatherForecast.calculateForecast().get("Averge");
@@ -120,5 +107,4 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(25.56, temperatureAverge);
     }
-
 }
