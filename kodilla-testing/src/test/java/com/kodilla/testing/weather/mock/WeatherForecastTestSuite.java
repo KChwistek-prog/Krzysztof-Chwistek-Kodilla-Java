@@ -93,7 +93,7 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(25.5, medianTemp);
     }
-
+/*
     @Test
     void testAverge() {
         //Given
@@ -106,5 +106,6 @@ class WeatherForecastTestSuite {
 
         //Then
         Assertions.assertEquals(25.56, temperatureAverge);
-    }
 }
+ */
+    }
