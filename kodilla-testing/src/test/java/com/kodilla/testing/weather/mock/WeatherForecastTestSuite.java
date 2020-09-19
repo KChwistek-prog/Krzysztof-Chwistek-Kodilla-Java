@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.*;
-
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -17,30 +16,27 @@ class WeatherForecastTestSuite {
     @Mock
     private Temperatures temperaturesMock;
 
-    private static Map<String,Double> tempMap(){
+private static Map<String,Double> temperaturesMap(){
         Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-        return temperaturesMap;
-    }
+     return temperaturesMap;
+      }
 
-    private static Map<String, Double>generateAverge(Map<String, Double> temperaturesMap) {
-        double avergeTemp;
+    private static Double generateAverge(Map<String, Double> temperaturesMap) {
         int amount = 0;
         double sum = 0;
         for (Map.Entry<String, Double> entry : temperaturesMap.entrySet()) {
             sum = sum + entry.getValue();
             amount++;
         }
-        avergeTemp = (sum / amount) - 1;
-        temperaturesMap.put("Averge", avergeTemp);
-        return temperaturesMap;
+        return (sum / amount) - 1 ;
     }
 
-    private static Map<String, Double> generateMedian(Map<String, Double> temperaturesMap) {
+    private static double generateMedian(Map<String, Double> temperaturesMap) {
         List<Double> seriesValue = new ArrayList<>();
         for (Map.Entry<String, Double> entry : temperaturesMap.entrySet()) {
             seriesValue.add(entry.getValue());
@@ -51,10 +47,9 @@ class WeatherForecastTestSuite {
         if (seriesValue.size() % 2 == 1) {
             median = seriesValue.get(middle);
         } else {
-            median = (seriesValue.get(middle - 1) + seriesValue.get(middle) / 2.0);
+            median = (seriesValue.get(middle - 1) + seriesValue.get(middle) / 2);
         }
-        temperaturesMap.put("Median", median - 1);
-        return temperaturesMap;
+        return median - 1;
     }
 
     @BeforeEach
@@ -67,10 +62,12 @@ class WeatherForecastTestSuite {
         System.out.println("Test ok");
     }
 
+
     @Test
     void testCalculateForecastWithMock() {
         //Given
-        when(temperaturesMock.getTemperatures()).thenReturn(tempMap());
+
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
@@ -83,29 +80,28 @@ class WeatherForecastTestSuite {
     @Test
     void testMedian() {
         //Given
-        Map<String,Double>mediana = generateMedian(tempMap());
-        when(temperaturesMock.getTemperatures()).thenReturn(mediana);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        double medianTemp = weatherForecast.calculateForecast().get("Median");
+        double medianTemp = generateMedian(weatherForecast.calculateForecast());
 
         //Then
         Assertions.assertEquals(25.5, medianTemp);
     }
-/*
+
     @Test
     void testAverge() {
+
         //Given
-        Map<String, Double> averge = generateAverge(tempMap());
-        when(temperaturesMock.getTemperatures()).thenReturn(averge);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        Double temperatureAverge = weatherForecast.calculateForecast().get("Averge");
+        double temperatureAverge = generateAverge(weatherForecast.calculateForecast());
 
         //Then
         Assertions.assertEquals(25.56, temperatureAverge);
-}
- */
     }
+
+}
