@@ -6,8 +6,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.*;
+
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -16,24 +16,24 @@ class WeatherForecastTestSuite {
     @Mock
     private Temperatures temperaturesMock;
 
-private static Map<String,Double> temperaturesMap(){
+    private static Map<String, Double> temperaturesMap() {
         Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-     return temperaturesMap;
-      }
+        return temperaturesMap;
+    }
 
-    private static Double generateAverge(Map<String, Double> temperaturesMap) {
-        int amount = 0;
-        double sum = 0;
-        for (Map.Entry<String, Double> entry : temperaturesMap.entrySet()) {
-            sum = sum + entry.getValue();
+    private static double generateAverge(Map<String, Double> temperaturesMap) {
+        double amount = 0.0;
+        double sum = 0.0;
+        for (Double aDouble : temperaturesMap.values()) {
+            sum += aDouble;
             amount++;
         }
-        return (sum / amount) - 1 ;
+        return (sum - amount) / amount;
     }
 
     private static double generateMedian(Map<String, Double> temperaturesMap) {
@@ -66,7 +66,6 @@ private static Map<String,Double> temperaturesMap(){
     @Test
     void testCalculateForecastWithMock() {
         //Given
-
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
@@ -92,7 +91,6 @@ private static Map<String,Double> temperaturesMap(){
 
     @Test
     void testAverge() {
-
         //Given
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap());
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
@@ -101,7 +99,7 @@ private static Map<String,Double> temperaturesMap(){
         double temperatureAverge = generateAverge(weatherForecast.calculateForecast());
 
         //Then
-        Assertions.assertEquals(25.56, temperatureAverge);
+        Assertions.assertEquals(25.56, temperatureAverge, 0.01);
     }
 
 }
