@@ -27,7 +27,6 @@ public class BookLibrary {
         if(resultList.size() == 0) {
             return bookList;
         }
-        bookList = resultList;
-        return bookList;
+        return resultList;
     }
 }
