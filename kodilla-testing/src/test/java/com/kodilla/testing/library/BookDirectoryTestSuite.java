@@ -16,6 +16,17 @@ class BookDirectoryTestSuite {
     @Mock
    private LibraryDatabase libraryDatabaseMock;
 
+    @BeforeAll
+    public static void beforeAllTests() {
+        System.out.println("This is the beginning of tests.");
+    }
+
+    @AfterAll
+    public static void afterAllTests() {
+        System.out.println("All tests are finished.");
+    }
+
+
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<>();
         for (int n = 1; n <= booksQuantity; n++){
@@ -106,7 +117,6 @@ class BookDirectoryTestSuite {
                 .thenReturn(rented5Books);
         when(libraryDatabaseMock.listBooksInHandsOf(djin))
                 .thenReturn(rented1Book);
-
 
         //when
         rented0Books = bookLibrary.listBooksInHandsOf(john);
