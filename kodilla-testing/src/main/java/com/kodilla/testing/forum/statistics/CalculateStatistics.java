@@ -4,17 +4,32 @@ import java.util.List;
 
 public class CalculateStatistics implements Statistics {
 
-    int postPerUser;
-    int commentsPerUser;
-    int commentsPerPost;
-    int commentcount;
-    int postcount;
-    List<String> userNames;
+    private int postPerUser;
+    private int commentsPerUser;
+    private int commentsPerPost;
 
-    public CalculateStatistics(List<String> userNames, int commentcount, int postcount) {
-        this.commentcount = commentcount;
-        this.postcount = postcount;
-        this.userNames = userNames;
+    public void setPostPerUser(int postPerUser) {
+        this.postPerUser = postPerUser;
+    }
+
+    public void setCommentsPerUser(int commentsPerUser) {
+        this.commentsPerUser = commentsPerUser;
+    }
+
+    public void setCommentsPerPost(int commentsPerPost) {
+        this.commentsPerPost = commentsPerPost;
+    }
+
+    public int getPostPerUser() {
+        return postPerUser;
+    }
+
+    public int getCommentsPerUser() {
+        return commentsPerUser;
+    }
+
+    public int getCommentsPerPost() {
+        return commentsPerPost;
     }
 
     public List<String> usersNames() {
@@ -30,9 +45,12 @@ public class CalculateStatistics implements Statistics {
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        postPerUser = postcount / userNames.size();
-        commentsPerPost = commentcount / postcount;
-        commentsPerUser = commentcount / userNames.size();
+        postPerUser = postsCount() / usersNames().size();
+        commentsPerPost = commentsCount() / postsCount();
+        commentsPerUser = commentsCount() / usersNames().size();
+        setCommentsPerUser(commentsPerUser);
+        setCommentsPerPost(commentsPerPost);
+        setPostPerUser(postPerUser);
     }
 }
 
