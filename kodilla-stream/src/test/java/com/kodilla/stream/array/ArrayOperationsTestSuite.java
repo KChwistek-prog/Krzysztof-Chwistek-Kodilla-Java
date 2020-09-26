@@ -1,10 +1,9 @@
 package com.kodilla.stream.array;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 import static org.junit.Assert.assertEquals;
 
-public class ArrayOperationsTestSuite implements ArrayOperations {
+public class ArrayOperationsTestSuite {
 
     @BeforeAll
     public static void beforeAllTests() {
