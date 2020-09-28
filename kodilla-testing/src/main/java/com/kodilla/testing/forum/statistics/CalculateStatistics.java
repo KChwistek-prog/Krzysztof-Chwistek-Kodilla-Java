@@ -11,6 +11,23 @@ public class CalculateStatistics implements Statistics {
     private int commentCount;
     List<String> usersNames;
 
+    public int calculateAdvStatistics(Statistics statistics) {
+
+        postPerUser = postsCount / usersNames.size();
+        commentsPerPost = commentCount / postsCount;
+        commentsPerUser = commentCount / usersNames.size();
+        setPostsCount(commentsPerPost);
+        return commentsPerPost;
+    }
+
+    public void setPostsCount(int postsCount) {
+        this.postsCount = postsCount;
+    }
+
+    public int getPostsCount() {
+        return postsCount;
+    }
+
     public int getPostPerUser() {
         return postPerUser;
     }
@@ -35,13 +52,7 @@ public class CalculateStatistics implements Statistics {
         return 0;
     }
 
-    public void calculateAdvStatistics(Statistics statistics) {
 
-        postPerUser = postsCount / usersNames.size();
-        commentsPerPost = commentCount / postsCount;
-        commentsPerUser = commentCount / usersNames.size();
-
-    }
 }
 
 

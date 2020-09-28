@@ -1,7 +1,6 @@
 package com.kodilla.testing.forum.statistics;
-
+import com.kodilla.testing.forum.statistics.Statistics;
 import org.junit.jupiter.api.*;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -36,16 +35,15 @@ public class calculateStatisticsTestSuite {
     void testCalculateStatisticsWithNoPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-
         List<String> userNames = generateFakeUser(35);
         int commentCount = 788;
         int postCount = 365;
+
         when(statisticsMock.commentsCount()).thenReturn(commentCount);
         when(statisticsMock.postsCount()).thenReturn(postCount);
         CalculateStatistics calculateStatistics = new CalculateStatistics();
-
         //When
-        int result = calculateStatistics.getCommentsPerPost();
+        int result = calculateStatistics.getPostsCount();
 
         //Then
         assertEquals(56, result);
