@@ -40,9 +40,9 @@ public class CalculateStatistics implements Statistics{
         if(postsCount == 0.0) {
             System.out.println("Error! No posts!");
         } else if (commentCount == 0.0){
-            System.out.println("Error! No comments");
+            System.out.println("Error! No comments!");
         } else if (userCount == 0.0) {
-            System.out.println("Error! No users");
+            System.out.println("Error! No users!");
         } else {
             commentsPerPost = commentCount / postsCount;
             postPerUser = postsCount / userCount;
