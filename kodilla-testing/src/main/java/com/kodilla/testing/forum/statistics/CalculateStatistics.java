@@ -2,30 +2,11 @@ package com.kodilla.testing.forum.statistics;
 
 import java.util.List;
 
-public class CalculateStatistics implements Statistics {
+public class CalculateStatistics implements Statistics{
 
-    private int postPerUser;
     private int commentsPerUser;
     private int commentsPerPost;
-    private int postsCount;
-    private int commentCount;
     List<String> usersNames;
-
-    public void setCommentsPerPost(int commentsPerPost) {
-        this.commentsPerPost = commentsPerPost;
-    }
-
-    public void setPostsCount(int postsCount) {
-        this.postsCount = postsCount;
-    }
-
-    public int getPostsCount() {
-        return postsCount;
-    }
-
-    public int getPostPerUser() {
-        return postPerUser;
-    }
 
     public int getCommentsPerUser() {
         return commentsPerUser;
@@ -40,26 +21,18 @@ public class CalculateStatistics implements Statistics {
     }
 
     public int postsCount() {
-        return postsCount;
+        return 0;
     }
 
     public int commentsCount() {
-        return commentCount;
+        return 0;
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        commentCount = 34;
-        postsCount = 45;
-        //postPerUser = postsCount();
-        //commentsPerUser = commentsCount();
-        postPerUser = postsCount / usersNames.size();
-        commentsPerPost = commentCount / postsCount;
-        commentsPerUser = commentCount / usersNames.size();
-        setCommentsPerPost(commentsPerPost);
-        setPostsCount(postsCount());
+        int postsCount = statistics.postsCount();
+        int commentCount = statistics.commentsCount();
+        commentsPerPost = postsCount / commentCount;
     }
-
-
 }
 
 

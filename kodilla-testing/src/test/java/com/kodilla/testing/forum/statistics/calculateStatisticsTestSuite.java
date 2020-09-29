@@ -1,25 +1,31 @@
 package com.kodilla.testing.forum.statistics;
-import static org.mockito.Mockito.when;
 
 import org.junit.Test;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class calculateStatisticsTestSuite {
-        @Mock
-        private Statistics statisticsMock;
+    @Mock
+    private Statistics statisticsMock;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         System.out.println("Test: begin");
     }
 
     @AfterEach
-    public void after(){
+    public void after() {
         System.out.println("Test: end");
     }
 
@@ -34,19 +40,18 @@ public class calculateStatisticsTestSuite {
     @Test
     public void testCalculateStatisticsWithNoPosts() {
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics();
         //List<String> userNames = generateFakeUser(35);
-        int commentCount = 788;
-        int postCount = 365;
-        when(statisticsMock.commentsCount()).thenReturn(commentCount);
-        when(statisticsMock.postsCount()).thenReturn(postCount);
+        Statistics statisticsMock = mock(Statistics.class);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        System.out.println(calculateStatistics.postsCount());
+        when(statisticsMock.commentsCount()).thenReturn(788);
+        when(statisticsMock.postsCount()).thenReturn(365);
+
         //When
         int result = calculateStatistics.getCommentsPerPost();
 
         //Then
-        Assertions.assertEquals(0,result);
+        Assertions.assertEquals(0, result);
     }
 
 
