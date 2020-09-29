@@ -1,18 +1,23 @@
 package com.kodilla.testing.forum.statistics;
-import com.kodilla.testing.forum.statistics.Statistics;
-import org.junit.jupiter.api.*;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.*;
 
+@ExtendWith(MockitoExtension.class)
 public class calculateStatisticsTestSuite {
-    @Mock
-    private Statistics statisticsMock;
+
+        @Mock
+        private Statistics statisticsMock;
+
+
     @BeforeEach
     public void before(){
         System.out.println("Test: begin");
@@ -32,21 +37,23 @@ public class calculateStatisticsTestSuite {
     }
 
     @Test
-    void testCalculateStatisticsWithNoPosts() {
+    public void testCalculateStatisticsWithNoPosts() {
         //Given
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> userNames = generateFakeUser(35);
+        //List<String> userNames = generateFakeUser(35);
         int commentCount = 788;
         int postCount = 365;
-
         when(statisticsMock.commentsCount()).thenReturn(commentCount);
         when(statisticsMock.postsCount()).thenReturn(postCount);
-        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        calculateStatistics.calculateAdvStatistics(statisticsMock);
+
         //When
-        int result = calculateStatistics.getPostsCount();
+        int result = calculateStatistics.getCommentsPerPost();
 
         //Then
-        assertEquals(56, result);
+        Assertions.assertEquals(54,result);
     }
 
 
