@@ -1,6 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class CalculateStatistics implements Statistics{
@@ -48,7 +47,6 @@ public class CalculateStatistics implements Statistics{
             postPerUser = postsCount / userCount;
             commentsPerUser = commentCount / userCount;
         }
-        //System.out.println("dzielenie " + commentsPerPost + "com na user" + commentsPerUser + "pos user" +postPerUser);
     }
 }
 
