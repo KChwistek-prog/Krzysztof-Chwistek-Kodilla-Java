@@ -7,6 +7,21 @@ public class CalculateStatistics implements Statistics{
     private double commentsPerUser;
     private double commentsPerPost;
     private double postPerUser;
+    private int postNumber;
+    private int commentNumber;
+    private int userNumber;
+
+    public int getPostNumber() {
+        return postNumber;
+    }
+
+    public int getCommentNumber() {
+        return commentNumber;
+    }
+
+    public int getUserNumber() {
+        return userNumber;
+    }
 
     public double getCommentsPerUser() {
         return commentsPerUser;
@@ -36,6 +51,9 @@ public class CalculateStatistics implements Statistics{
         double postsCount = statistics.postsCount();
         double commentCount = statistics.commentsCount();
         double userCount = statistics.usersNames().size();
+        postNumber = statistics.postsCount();
+        commentNumber = statistics.commentsCount();
+        userNumber = statistics.usersNames().size();
         if(postsCount == 0.0) {
             System.out.println("Error! No posts!");
         } else if (commentCount == 0.0){
