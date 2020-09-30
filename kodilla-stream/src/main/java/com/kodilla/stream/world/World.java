@@ -4,12 +4,10 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class World {
-
-    List<String> continentList = new ArrayList<>();
-
-
-    //public BigDecimal getPeopleQuantity(){
-    //    return  continentList.stream();
-
-   // }
+    Continent continent = new Continent();
+    public void continentList(){
+    List<List> continentList = new ArrayList<>();
+    continentList.add(continent.europe());
+    continentList.add(continent.asia());
+   }
 }
