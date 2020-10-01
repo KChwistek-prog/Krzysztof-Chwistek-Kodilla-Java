@@ -44,9 +44,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -72,9 +72,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -100,9 +100,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -128,9 +128,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -156,9 +156,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -184,9 +184,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();
@@ -212,9 +212,9 @@ public class CalculateStatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //When
-        int resultUserCount = calculateStatistics.getUserNumber();
-        int resultPostCount = calculateStatistics.getPostNumber();
-        int resultCommentCount = calculateStatistics.getCommentNumber();
+        double resultUserCount = calculateStatistics.getUserCount();
+        double resultPostCount = calculateStatistics.getPostsCount();
+        double resultCommentCount = calculateStatistics.getCommentCount();
         double resultCommentsPerPost = calculateStatistics.getCommentsPerPost();
         double resultPostPerUser = calculateStatistics.getPostPerUser();
         double resultCommentPerUser = calculateStatistics.getCommentsPerUser();

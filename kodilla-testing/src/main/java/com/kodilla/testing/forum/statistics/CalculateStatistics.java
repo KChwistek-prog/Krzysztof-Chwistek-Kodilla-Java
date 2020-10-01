@@ -7,20 +7,21 @@ public class CalculateStatistics implements Statistics{
     private double commentsPerUser;
     private double commentsPerPost;
     private double postPerUser;
-    private int postNumber;
-    private int commentNumber;
-    private int userNumber;
+    private double postsCount;
+    private double commentCount;
+    private double userCount;
 
-    public int getPostNumber() {
-        return postNumber;
+
+    public double getPostsCount() {
+        return postsCount;
     }
 
-    public int getCommentNumber() {
-        return commentNumber;
+    public double getCommentCount() {
+        return commentCount;
     }
 
-    public int getUserNumber() {
-        return userNumber;
+    public double getUserCount() {
+        return userCount;
     }
 
     public double getCommentsPerUser() {
@@ -48,12 +49,9 @@ public class CalculateStatistics implements Statistics{
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        double postsCount = statistics.postsCount();
-        double commentCount = statistics.commentsCount();
-        double userCount = statistics.usersNames().size();
-        postNumber = statistics.postsCount();
-        commentNumber = statistics.commentsCount();
-        userNumber = statistics.usersNames().size();
+        postsCount = statistics.postsCount();
+        commentCount = statistics.commentsCount();
+        userCount = statistics.usersNames().size();
         if(postsCount == 0.0) {
             System.out.println("Error! No posts!");
         } else if (commentCount == 0.0){
