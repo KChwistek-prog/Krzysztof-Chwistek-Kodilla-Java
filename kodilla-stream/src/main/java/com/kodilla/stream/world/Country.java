@@ -5,9 +5,8 @@ import java.math.BigInteger;
 
 public class Country {
 
-    public BigDecimal getPeopleQuantity(){
-            BigDecimal peopleQuantity = new BigDecimal(BigInteger.ZERO);
-            return peopleQuantity;
+    public BigDecimal getPeopleQuantity(BigDecimal bigDecimal){
+        return new BigDecimal(BigInteger.ZERO);
         }
 
 }
