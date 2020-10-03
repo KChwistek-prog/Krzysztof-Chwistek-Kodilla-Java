@@ -1,19 +1,19 @@
 package com.kodilla.stream.world;
 import java.math.BigDecimal;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
-        Continent eu = new Continent();
-        System.out.println(eu.europe());
-        System.out.println(eu.france);
-
-        World wr = new World();
-
-        System.out.println(wr.world());
-        wr.getPeopleQuantity();
-        //testGetPeopleQuantity();
+        //Given
+        World world = new World();
+        //When
+        BigDecimal expected = new BigDecimal("102338705088");
+        BigDecimal result = world.getPeopleQuantity();
+        //Then
+        Assertions.assertEquals(expected, result);
     }
 }
