@@ -11,7 +11,8 @@ public class SecondChallengeTestSuite {
         //Given
         SecondChallenge secondChallenge = new SecondChallenge();
         //When & Then
-        System.out.println(secondChallenge.probablyIWillThrowException(1,2));
+        Assertions.assertThrows(ExceptionHandling.class, () -> secondChallenge.probablyIWillThrowException(2,1));
+
 
     }
 }
