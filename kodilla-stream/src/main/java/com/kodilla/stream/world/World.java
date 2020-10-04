@@ -17,9 +17,11 @@ public class World {
     }
     public BigDecimal getPeopleQuantity() {
         World world = new World();
+        Country country = new Country();
         BigDecimal population = world.world().stream()
                 .flatMap(Collection::stream)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .map(country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
         return population;
     }
 }
