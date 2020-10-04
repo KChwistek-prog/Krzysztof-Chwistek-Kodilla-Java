@@ -3,6 +3,7 @@ package com.kodilla.exception.io;
 import com.kodilla.exception.test.ExceptionHandling;
 import com.kodilla.exception.test.SecondChallenge;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class SecondChallengeTestSuite {
     @Test
@@ -10,6 +11,7 @@ public class SecondChallengeTestSuite {
         //Given
         SecondChallenge secondChallenge = new SecondChallenge();
         //When & Then
-        secondChallenge.probablyIWillThrowException(2, 2);
+        System.out.println(secondChallenge.probablyIWillThrowException(1,2));
+
     }
 }
