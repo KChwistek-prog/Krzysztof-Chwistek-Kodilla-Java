@@ -48,7 +48,7 @@ public class BoardTestSuite {
     }
 /*
     @Test
-    testAddTaskListAverageWorkingOnTask(){
+    void testAddTaskListAverageWorkingOnTask(){
         //Given
         Board project = prepareTestData();
 
@@ -59,14 +59,14 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(l -> l.getTasks().stream())
                 .map(Task::getCreated)
-
-                .collect(Collectors.averagingInt());
+                .filter(x -> x. < LocalDate.now().minusDays(10));
+               // .collect(Collectors.averagingInt(x));
         //Then
         assertEquals(1,1);
     }
 
- */
 
+ */
     @Test
     void testAddTaskListFindUsersTasks() {
         //Given
