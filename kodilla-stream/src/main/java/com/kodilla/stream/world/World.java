@@ -21,11 +21,11 @@ public class World {
         china.setPeopleQuantity(new BigDecimal("25679748874"));
         russia.setPeopleQuantity(new BigDecimal("14379748874"));
 
-        europe.addCountryToContinent(poland.getPeopleQuantity());
-        europe.addCountryToContinent(france.getPeopleQuantity());
-        europe.addCountryToContinent(germany.getPeopleQuantity());
-        asia.addCountryToContinent(china.getPeopleQuantity());
-        asia.addCountryToContinent(russia.getPeopleQuantity());
+        europe.addCountryToContinent(poland);
+        europe.addCountryToContinent(france);
+        europe.addCountryToContinent(germany);
+        asia.addCountryToContinent(china);
+        asia.addCountryToContinent(russia);
 
         world.addContinentToEarth(europe);
         world.addContinentToEarth(asia);
@@ -44,6 +44,7 @@ public class World {
         return flatEarth.stream()
                 .map(Continent::getContinent)
                 .flatMap(Collection::stream)
+                .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
 

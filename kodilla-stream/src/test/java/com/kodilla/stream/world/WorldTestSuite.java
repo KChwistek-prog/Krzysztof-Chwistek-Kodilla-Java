@@ -17,8 +17,8 @@ public class WorldTestSuite {
         poland.setPeopleQuantity(new BigDecimal("2367354763"));
         russia.setPeopleQuantity(new BigDecimal("14379748874"));
 
-        europe.addCountryToContinent(poland.getPeopleQuantity());
-        asia.addCountryToContinent(russia.getPeopleQuantity());
+        europe.addCountryToContinent(poland);
+        asia.addCountryToContinent(russia);
 
         world.addContinentToEarth(europe);
         world.addContinentToEarth(asia);

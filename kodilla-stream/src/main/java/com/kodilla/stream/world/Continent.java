@@ -6,17 +6,17 @@ import java.util.List;
 
 
 public class Continent {
-    private List<BigDecimal> continent = new ArrayList<BigDecimal>();
+    private List<Country> continent = new ArrayList<>();
 
-    public List<BigDecimal> getContinent() {
+    public List<Country> getContinent() {
         return continent;
     }
 
-    public void addCountryToContinent(BigDecimal countryPopulation) {
+    public void addCountryToContinent(Country countryPopulation) {
         continent.add(countryPopulation);
     }
 
-    public void removeCountryFromContinent(String key) {
-        continent.remove(key);
+    public void removeCountryFromContinent(int value) {
+        continent.remove(value);
     }
 }
