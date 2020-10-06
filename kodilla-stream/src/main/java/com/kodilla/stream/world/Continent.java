@@ -1,31 +1,20 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashMap;
 
 public class Continent {
-    Country country = new Country();
-    BigDecimal poland = country.getPeopleQuantity(new BigDecimal("2367354763"));
-    BigDecimal germany = country.getPeopleQuantity(new BigDecimal("3537476322"));
-    BigDecimal france = country.getPeopleQuantity((new BigDecimal("56374376255")));
-    BigDecimal china = country.getPeopleQuantity(new BigDecimal("25679748874"));
-    BigDecimal russia = country.getPeopleQuantity(new BigDecimal("14379748874"));
+    private HashMap<String, BigDecimal> continent = new HashMap<String, BigDecimal>();
 
-    public List<BigDecimal> europe() {
-        List<BigDecimal> europe = new ArrayList<>();
-        europe.add(poland);
-        europe.add(germany);
-        europe.add(france);
-        return europe;
+    public HashMap<String, BigDecimal> getContinent() {
+        return continent;
     }
 
-    public List<BigDecimal> asia() {
-        List<BigDecimal> asia = new ArrayList<>();
-        asia.add(china);
-        asia.add(russia);
-        return asia;
+    public void addCountryToContinent(String countryName, BigDecimal countryPopulation) {
+        continent.put(countryName, countryPopulation);
     }
 
+    public void removeCountryFromContinent(String key) {
+        continent.remove(key);
+    }
 }

@@ -1,27 +1,49 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class World {
+    private final ArrayList<Continent> earth = new ArrayList<>();
 
-    public List<List<BigDecimal>> world(){
-        Continent continent = new Continent();
-        List<List<BigDecimal>> continentList = new ArrayList<>();
-        continentList.add(continent.asia());
-        continentList.add(continent.europe());
-        return continentList;
-    }
-    public BigDecimal getPeopleQuantity() {
-        World world = new World();
+    public static void main(String[] args) {
         Country country = new Country();
-        BigDecimal population = world.world().stream()
-                .flatMap(Collection::stream)
-                .map(country::getPeopleQuantity)
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-        return population;
+        Continent europe = new Continent();
+        Continent asia = new Continent();
+        World world = new World();
+
+        BigDecimal poland = country.getPeopleQuantity(new BigDecimal("2367354763"));
+        BigDecimal germany = country.getPeopleQuantity(new BigDecimal("3537476322"));
+        BigDecimal france = country.getPeopleQuantity(new BigDecimal("56374376255"));
+        BigDecimal china = country.getPeopleQuantity(new BigDecimal("25679748874"));
+        BigDecimal russia = country.getPeopleQuantity(new BigDecimal("14379748874"));
+
+        europe.addCountryToContinent("Poland", poland);
+        europe.addCountryToContinent("France", france);
+        europe.addCountryToContinent("Germany", germany);
+        asia.addCountryToContinent("China", china);
+        asia.addCountryToContinent("Russia", russia);
+
+        world.addContinentToEarth(europe);
+        world.addContinentToEarth(asia);
+        world.getPeopleQuantity(world.getEarth());
     }
+
+    public ArrayList<Continent> getEarth() {
+        return earth;
+    }
+
+    public void addContinentToEarth(Continent contiName) {
+        earth.add(contiName);
+    }
+
+    public BigDecimal getPeopleQuantity(ArrayList<Continent> flatEarth) {
+        return flatEarth.stream()
+                .map(Continent::getContinent)
+                .map(HashMap::values)
+                .flatMap(Collection::stream)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+
+    }
+
 }

@@ -3,9 +3,8 @@ package com.kodilla.stream.world;
 import java.math.BigDecimal;
 
 public class Country {
-
-    public BigDecimal getPeopleQuantity(BigDecimal bigDecimal){
+    public BigDecimal getPeopleQuantity(BigDecimal bigDecimal) {
         return bigDecimal;
-        }
+    }
 
 }
