@@ -1,17 +1,19 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Continent {
-    private HashMap<String, BigDecimal> continent = new HashMap<String, BigDecimal>();
+    private List<BigDecimal> continent = new ArrayList<BigDecimal>();
 
-    public HashMap<String, BigDecimal> getContinent() {
+    public List<BigDecimal> getContinent() {
         return continent;
     }
 
-    public void addCountryToContinent(String countryName, BigDecimal countryPopulation) {
-        continent.put(countryName, countryPopulation);
+    public void addCountryToContinent(BigDecimal countryPopulation) {
+        continent.add(countryPopulation);
     }
 
     public void removeCountryFromContinent(String key) {
