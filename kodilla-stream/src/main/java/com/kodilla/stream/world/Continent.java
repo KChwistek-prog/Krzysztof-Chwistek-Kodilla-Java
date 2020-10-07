@@ -11,11 +11,11 @@ public class Continent {
         return continent;
     }
 
-    public void addCountryToContinent(Country countryPopulation) {
-        continent.add(countryPopulation);
+    public void addCountry(Country country) {
+        continent.add(country);
     }
 
-    public void removeCountryFromContinent(int value) {
-        continent.remove(value);
+    public void removeCountry(int index) {
+        continent.remove(index);
     }
 }

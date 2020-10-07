@@ -21,15 +21,16 @@ public class World {
         china.setPeopleQuantity(new BigDecimal("25679748874"));
         russia.setPeopleQuantity(new BigDecimal("14379748874"));
 
-        europe.addCountryToContinent(poland);
-        europe.addCountryToContinent(france);
-        europe.addCountryToContinent(germany);
-        asia.addCountryToContinent(china);
-        asia.addCountryToContinent(russia);
+        europe.addCountry(poland);
+        europe.addCountry(france);
+        europe.addCountry(germany);
+        asia.addCountry(china);
+        asia.addCountry(russia);
 
         world.addContinentToEarth(europe);
         world.addContinentToEarth(asia);
-        world.getPeopleQuantity(world.getEarth());
+
+        System.out.println("Population: " + world.getPeopleQuantity(world.getEarth()));
     }
 
     public ArrayList<Continent> getEarth() {
