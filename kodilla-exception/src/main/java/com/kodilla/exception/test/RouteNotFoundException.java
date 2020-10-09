@@ -1,15 +1,18 @@
 package com.kodilla.exception.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RouteNotFoundException extends Throwable {
     public static void main(String[] args) {
-
         try {
             FindFlight findFlight = new FindFlight();
-            Flight krakowToSosnowiec = new Flight("Krakow", "Sosnowiec");
-            findFlight.findFlight(krakowToSosnowiec);
-
+            FlightList flightList = new FlightList();
+            flightList.addFlight(new Flight("xx", "Wachock"));
+            flightList.addFlight(new Flight("Wachock", "Berlin"));
+            findFlight.findFlight(flightList.getFlightList(0));
         } catch (RouteNotFoundException e) {
-            System.out.println("No such flight");
+            System.out.println("Airport doesnt exist in list");
         }
     }
 }
