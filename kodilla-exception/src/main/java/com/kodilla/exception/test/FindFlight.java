@@ -1,12 +1,13 @@
 package com.kodilla.exception.test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FindFlight {
 
-    public Map<String,Boolean> ListOfAvailableAirports() {
-        Map<String,Boolean> availableAirports = new HashMap<>();
+    public Map<String, Boolean> ListOfAvailableAirports() {
+        Map<String, Boolean> availableAirports = new HashMap<>();
         availableAirports.put("Berlin", true);
         availableAirports.put("Warsaw", true);
         availableAirports.put("Wachock", true);
@@ -14,6 +15,7 @@ public class FindFlight {
         availableAirports.put("Barcelona", true);
         return availableAirports;
     }
+
 
     public static void main(String[] args) throws RouteNotFoundException {
         FindFlight findFlight = new FindFlight();
@@ -31,10 +33,9 @@ public class FindFlight {
     }
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
-        Map<String, Boolean> airportList = ListOfAvailableAirports();
         String end = flight.getArrivalAirport();
         String start = flight.getDepartureAirport();
-
+        Map<String, Boolean> airportList = ListOfAvailableAirports();
         if (airportList.containsKey(start) != true || airportList.containsKey(end) != true) {
             throw new RouteNotFoundException();
         } else {
