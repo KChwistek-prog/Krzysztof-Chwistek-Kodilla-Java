@@ -18,6 +18,4 @@ class MovieIterate {
         MovieStore movieStore = new MovieStore();
         iterate(movieStore.getMovies());
     }
-
-
 }
