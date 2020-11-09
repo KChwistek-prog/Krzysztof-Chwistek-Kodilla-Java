@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -22,12 +21,16 @@ public class CalculatorTestSuite {
         double subResult = calculator.sub(4, 3);
         double mulResult = calculator.mul(4, 3);
         double divResult = calculator.div(4, 2);
+        double divByOPositivResult = calculator.div(4, 0);
+        double divByONegativeResult = calculator.div(-4, 0);
 
         //then
         assertEquals(7, addResult);
         assertEquals(1, subResult);
         assertEquals(12, mulResult);
         assertEquals(2, divResult);
-
+        assertEquals(Double.POSITIVE_INFINITY, divByOPositivResult);
+        assertEquals(Double.NEGATIVE_INFINITY, divByONegativeResult);
     }
+
 }
