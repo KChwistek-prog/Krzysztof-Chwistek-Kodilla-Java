@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class BoardConfig {
+
     @Autowired
     private TaskList toDoList;
     @Autowired

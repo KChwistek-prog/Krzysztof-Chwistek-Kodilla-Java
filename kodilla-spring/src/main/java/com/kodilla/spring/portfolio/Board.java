@@ -25,15 +25,15 @@ public class Board {
         return doneList;
     }
 
-    public void addToDoTask(String task){
+    public void addToDoTask(String task) {
         this.toDoList.addTask(task);
     }
 
-    public void addInProgressTask(String task){
+    public void addInProgressTask(String task) {
         this.inProgressList.addTask(task);
     }
 
-    public void addDoneTask(String task){
+    public void addDoneTask(String task) {
         this.doneList.addTask(task);
     }
 
