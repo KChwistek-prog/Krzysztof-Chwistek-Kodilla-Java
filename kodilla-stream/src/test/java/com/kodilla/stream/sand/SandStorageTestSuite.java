@@ -9,6 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SandStorageTestSuite {
+
     @Test
     void testGetSandBeansQuantity() {
         //Given
@@ -19,7 +20,7 @@ class SandStorageTestSuite {
 
         //When
         BigDecimal totalSand = BigDecimal.ZERO;
-        for (SandStorage continent : continents){
+        for (SandStorage continent : continents) {
             totalSand = totalSand.add(continent.getSandBeansQuantity());
         }
 
@@ -27,6 +28,7 @@ class SandStorageTestSuite {
         BigDecimal expectedSand = new BigDecimal("211111110903703703670");
         assertEquals(expectedSand, totalSand);
     }
+
     @Test
     void testGetSandBeansQuantityWithReduce() {
         //Given
