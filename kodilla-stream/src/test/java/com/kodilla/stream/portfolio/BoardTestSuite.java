@@ -50,7 +50,7 @@ public class BoardTestSuite {
                 .count();
 
         //Then
-        assertEquals(2, longTasks);
+        assertEquals(3, longTasks);
     }
 
     @Test
