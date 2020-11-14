@@ -32,5 +32,4 @@ public class CalculatorTestSuite {
         assertEquals(Double.POSITIVE_INFINITY, divByOPositivResult);
         assertEquals(Double.NEGATIVE_INFINITY, divByONegativeResult);
     }
-
 }
