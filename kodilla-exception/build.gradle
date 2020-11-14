@@ -16,3 +16,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.5.10'
 }
+
+test {
+    useJUnitPlatform()
+}
