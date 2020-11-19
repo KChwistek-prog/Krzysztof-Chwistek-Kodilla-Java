@@ -23,9 +23,6 @@ public class PaitingTask implements Task {
 
     @Override
     public boolean isTaskExecuted(String taskName) {
-        if (isCompleted.containsKey(taskName)) {
-            return true;
-        }
-        return false;
+        return isCompleted.containsKey(taskName);
     }
 }
