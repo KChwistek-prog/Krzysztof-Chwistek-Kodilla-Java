@@ -1,0 +1,21 @@
+SELECT
+    SUMMARY, DESCRIPTION, NAME
+FROM
+    issues
+        JOIN
+    issueslists ON issues.ISSUESLISTS_ID = issueslists_ID;
+
+SELECT
+    SUMMARY, FIRSTNAME, LASTNAME
+FROM
+    issues
+        JOIN
+    users ON issues.USER_ID_ASSIGNEDTO = users.ID;
+
+SELECT
+    FIRSTNAME, LASTNAME, COUNT(SUMMARY) as TASK_NUMBER
+FROM
+    issues
+        JOIN
+    users ON issues.USER_ID_ASSIGNEDTO = users.ID
+GROUP BY users.ID;
