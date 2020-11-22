@@ -34,7 +34,7 @@ public class UserTestSuite {
         //When
         String tomPosts = tom.sharePost();
         System.out.println(tomPosts);
-        tom.userSetSocial(new FacebookPublisher());
+        tom.setSocialPublisher(new FacebookPublisher());
         tomPosts = tom.sharePost();
         System.out.println(tomPosts);
 
