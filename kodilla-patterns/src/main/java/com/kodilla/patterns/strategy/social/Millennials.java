@@ -4,6 +4,6 @@ public class Millennials extends User{
 
     public Millennials(String name) {
         super(name);
-        this.socialPublisher = new FacebookPublisher();
+        setSocialPublisher(new FacebookPublisher());
     }
 }
