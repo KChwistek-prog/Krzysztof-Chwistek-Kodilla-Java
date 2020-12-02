@@ -5,26 +5,30 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class TaskListDaoTestSuite {
+public class TaskList2DaoTestSuite {
     @Autowired
-    private TaskListDao taskListDao;
+   private TaskListDao taskListDao;
 
     @Test
     void testFindByListName() {
         //given
-        TaskList taskList = new TaskList("Tom", "Task Description");
-        taskListDao.save(taskList);
+       TaskList taskList = new TaskList("Tom", "Task Description");
+       taskListDao.save(taskList);
 
         //when
-        String result = taskList.getListName();
+       String result = taskListDao.findByListName("Tom").get(0).getListName();
 
         //then
-        assertEquals("Tom", result);
+       assertEquals("Tom", result);
 
         //cleanUp
         taskListDao.delete(taskList);
     }
+
+
 }
