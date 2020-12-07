@@ -46,6 +46,6 @@ public class TaskList {
     }
 
     public void setDescritpion(String descritpion) {
-        descritpion = descritpion;
+        this.descritpion = descritpion;
     }
 }
