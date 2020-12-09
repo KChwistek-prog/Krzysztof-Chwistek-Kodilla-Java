@@ -103,15 +103,14 @@ class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //when
-        List<Company> companyResultList = companyDao.searchByParam("'Dat%'");
-        System.out.println("=====================>" + companyResultList.size());
+        List<Company> companyResultList = companyDao.searchByParam("Dat");
         //CleanUp
-//        try {
-//            companyDao.deleteById(softwareMachineId);
-//            companyDao.deleteById(dataMaestersId);
-//            companyDao.deleteById(greyMatterId);
-//        } catch (Exception e) {
-//            //do nothing
-//        }
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }

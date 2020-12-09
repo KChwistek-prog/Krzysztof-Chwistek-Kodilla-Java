@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.searchByParam",
-        query = "SELECT company_name FROM companies WHERE company_name LIKE ':searchParameter' ;",
+        query = "SELECT * FROM companies WHERE substring(company_name, 1,3) like substring(:searchParameter, 1, 3) ;",
         resultClass = Company.class
 )
 
@@ -39,6 +39,7 @@ public final class Company {
     public String getName() {
         return name;
     }
+
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
