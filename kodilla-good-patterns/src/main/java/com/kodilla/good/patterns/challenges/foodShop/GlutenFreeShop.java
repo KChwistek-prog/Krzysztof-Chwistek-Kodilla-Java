@@ -1,22 +1,19 @@
 package com.kodilla.good.patterns.challenges.foodShop;
 
-public class GlutenFreeShop implements Supplier{
-    private final String name;
-    private Product product;
-    private int orderQuantity;
 
-    public GlutenFreeShop(String name, Product product, int orderQuantity) {
-        this.name = name;
-        this.product = product;
-        this.orderQuantity = orderQuantity;
+public class GlutenFreeShop extends Supplier{
+
+    public GlutenFreeShop(String name, Product product, ProductList productList, int orderQuantity) {
+        super(name, product, productList, orderQuantity);
     }
 
     @Override
     public void process() {
-        if(product.getInStock() > 0){
-            System.out.println("Order" + product.getName() + " for " + orderQuantity * product.getPrice() + "$");
+        if(getProductList().getProductAvailability(getProduct()) >= getOrderQuantity()){
+            System.out.println("Order in GlutenFreeShop " + getProduct().getName() + " for " + getOrderQuantity() * getProduct().getPrice() + "$ \n");
         } else {
-            System.out.println("Product unavailable");
+            System.out.println("Product unavailable in that amount");
         }
     }
 }
+
