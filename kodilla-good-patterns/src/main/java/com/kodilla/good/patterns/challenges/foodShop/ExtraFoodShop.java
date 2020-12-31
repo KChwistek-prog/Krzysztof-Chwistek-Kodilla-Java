@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges.foodShop;
 
 public class ExtraFoodShop extends Supplier {
-    boolean memberPlus;
+    private boolean memberPlus;
 
     public ExtraFoodShop(String name, Product product, ProductList productList, int orderQuantity, boolean memberPlus) {
         super(name, product, productList, orderQuantity);
