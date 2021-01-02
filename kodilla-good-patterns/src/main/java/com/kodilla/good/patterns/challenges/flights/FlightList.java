@@ -3,13 +3,13 @@ package com.kodilla.good.patterns.challenges.flights;
 import java.util.*;
 
 public class FlightList {
-    private Map<Flight, String> flightList = new HashMap<>();
+    private List<Flight> flightList = new ArrayList<>();
 
-    public Map<Flight, String> getFlightList() {
+    public List<Flight> getFlightList() {
         return flightList;
     }
 
-    public void setFlightList(Flight flight, String thru) {
-        this.flightList.put(flight, thru);
+    public void setFlightList(Flight flight) {
+        this.flightList.add(flight);
     }
 }
