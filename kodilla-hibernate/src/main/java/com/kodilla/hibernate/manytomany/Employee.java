@@ -10,6 +10,12 @@ import java.util.List;
         query = "FROM Employee  WHERE lastname = :LASTNAMEPARAM"
 )
 
+@NamedNativeQuery(
+        name = "Employee.searchEmployeeByNameParam",
+        query = "SELECT * FROM EMPLOYEES WHERE firstname OR lastname LIKE :EMPLOYEENAMEPARAM",
+        resultClass = Employee.class
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public final class Employee {

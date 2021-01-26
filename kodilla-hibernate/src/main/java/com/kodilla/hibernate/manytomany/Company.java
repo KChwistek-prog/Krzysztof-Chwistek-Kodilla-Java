@@ -11,6 +11,11 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedNativeQuery(
+        name = "Company.searchCompanyByNameParam",
+        query = "SELECT * FROM COMPANIES WHERE company_name LIKE :COMPANYNAMEPARAM",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public final class Company {

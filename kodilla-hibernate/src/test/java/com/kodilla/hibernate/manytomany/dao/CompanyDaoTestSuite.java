@@ -2,6 +2,7 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.api.SearchFacade;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,9 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private EmployeeDao employeeDao;
+
+    @Autowired
+    private SearchFacade searchFacade;
 
     @Test
     void testSaveManyToMany() {
@@ -62,11 +66,12 @@ class CompanyDaoTestSuite {
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
         } catch (Exception e) {
-            //do nothing
+            // do nothing
         }
     }
+
     @Test
-    void retrieveEployeeName(){
+    void retrieveEployeeName() {
         //given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -84,12 +89,23 @@ class CompanyDaoTestSuite {
         companyDao.save(softwareMachine);
 
         //when
-        List<Employee>resultNameList = employeeDao.retrieveEmployeeName("Smith");
+        List<Employee> resultNameList = employeeDao.retrieveEmployeeName("Smith");
         //then
         assertNotNull(resultNameList);
     }
+
     @Test
-    void retrieveCompanyBySearchParams(){
+    void serachNameByGivenParameter() {
+
+        //when & then
+        searchFacade.search("company", "rey");
+        searchFacade.search("employee", "arc");
+
+    }
+
+
+    @Test
+    void retrieveCompanyBySearchParams() {
         //given
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
