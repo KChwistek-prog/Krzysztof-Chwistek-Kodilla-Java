@@ -11,17 +11,12 @@ import java.util.List;
 
 @Service
 public class SearchService {
-    private List<SearchService> result;
 
     @Autowired
     private CompanyDao companyDao;
 
     @Autowired
     private EmployeeDao employeeDao;
-
-    public SearchService(List<SearchService> result) {
-        this.result = result;
-    }
 
     public List<Company> SearchCompany(String param){
         return companyDao.searchCompanyByNameParam("%"+param+"%");
