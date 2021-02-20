@@ -6,11 +6,11 @@ public class Checkers {
     private final String playerOne;
     private final String playerTwo;
 
-    private Checkers(Board board, String playerOne, String playerTwo) {  // [1]
-        this.board = board;                                               // [2]
-        this.playerOne = playerOne;                                       // [3]
-        this.playerTwo = playerTwo;                                       // [4]
-    }                                                                    // [5]
+    private Checkers(Board board, String playerOne, String playerTwo) {
+        this.board = board;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+    }
 
     public Board getBoard() {
         return board;
@@ -24,11 +24,11 @@ public class Checkers {
         return playerTwo;
     }
 
-    public static class CheckersBuilder {                                // [6]
+    public static class CheckersBuilder {
 
-        private Board board = new Board();                                // [7]
-        private String playerOne = "";                                    // [8]
-        private String playerTwo = "";                                    // [9]
+        private final Board board = new Board();
+        private String playerOne = "";
+        private String playerTwo = "";
 
         public CheckersBuilder PlayerOne(String playerOne) {              // [10]
             this.playerOne = playerOne;                                    // [11]
@@ -78,6 +78,6 @@ public class Checkers {
                 throw new IllegalStateException("There are no figures of both colors on the board!");// [51]
             }                                                                                   // [52]
             return new Checkers(board, playerOne, playerTwo);                                   // [53]
-        };                                                                                     // [54]
+        }                                                                                     // [54]
     }                                                                                         // [55]
 }

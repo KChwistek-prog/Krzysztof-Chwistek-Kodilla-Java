@@ -14,7 +14,7 @@ public final class Bigmac {
         private String bun;
         private int burgers;
         private String sauce;
-        private List<String> ingredients = new ArrayList<>();
+        private final List<String> ingredients = new ArrayList<>();
 
         public BigmacBuilder bun(String bun){
             this.bun = bun;
