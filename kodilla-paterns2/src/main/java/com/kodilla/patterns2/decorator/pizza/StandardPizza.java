@@ -10,7 +10,7 @@ public class StandardPizza implements PizzaOrder{
     }
 
     @Override
-    public String addIngredient() {
+    public String getIngredient() {
         return "Sauce, cheese";
     }
 }

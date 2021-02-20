@@ -13,7 +13,7 @@ public class AdditionalOnionDecorator extends AbstractPizzaOrderDecorator{
     }
 
     @Override
-    public String addIngredient() {
-        return super.addIngredient() + " + onion";
+    public String getIngredient() {
+        return super.getIngredient() + " + onion";
     }
 }
