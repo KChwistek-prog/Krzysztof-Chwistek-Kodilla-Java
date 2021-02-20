@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FlightList {
 
-    private List<Flight> flightList = new ArrayList<>();
+    private final List<Flight> flightList = new ArrayList<>();
 
     public void addFlight(Flight flight){
         flightList.add(flight);

@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges.flights;
 import java.util.*;
 
 public class FlightList {
-    private List<Flight> flightList = new ArrayList<>();
+    private final List<Flight> flightList = new ArrayList<>();
 
     public List<Flight> getFlightList() {
         return flightList;
