@@ -13,7 +13,7 @@ public class FacadeLogger {
 
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public void logEvent(){
-        LOGGER.info("Logging");
+        LOGGER.info("Wywołano processOrder");
     }
 
 }
