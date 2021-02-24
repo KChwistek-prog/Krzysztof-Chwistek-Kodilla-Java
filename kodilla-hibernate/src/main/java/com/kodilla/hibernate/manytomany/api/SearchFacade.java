@@ -14,11 +14,11 @@ public class SearchFacade {
 
     public void search(String type, String name) {
 
-        if (name.equals(type)) {
+        if ("company".equals(type)) {
             System.out.println("Companies found: ");
             searchService.searchCompany(name)
                     .forEach(e -> System.out.println(e.getName()));
-        } else if (type.equals("employee")) {
+        } else if ("employee".equals(type)) {
             System.out.println("Employees found: ");
             searchService.searchEmployee(name)
                     .forEach(e -> System.out.println(e.getFirstname() + " " + e.getLastname()));
