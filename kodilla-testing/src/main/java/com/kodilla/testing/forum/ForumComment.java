@@ -1,8 +1,8 @@
 package com.kodilla.testing.forum;
 
 public class ForumComment {
-    private ForumPost forumPost;
-    private String commentBody;
+    private final ForumPost forumPost;
+    private final String commentBody;
     private String author;
 
     public ForumComment(ForumPost forumPost, String commentBody, String author) {

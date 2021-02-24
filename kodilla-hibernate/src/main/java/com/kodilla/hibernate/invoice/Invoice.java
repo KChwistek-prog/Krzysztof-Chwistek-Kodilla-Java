@@ -6,10 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table
 public class Invoice {
+
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name = "INVOICE_ID")
     private int id;
+
+    @NotNull
+    @Column(name = "NUMBER")
     private String number;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Item.class)
+    @JoinColumn(name = "ITEMS")
     private List<Item> items = new ArrayList<>();
 
     public Invoice() {
@@ -21,10 +32,7 @@ public class Invoice {
         this.items = items;
     }
 
-    @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "INVOICE_ID")
+
     public int getId() {
         return id;
     }
@@ -33,8 +41,7 @@ public class Invoice {
         this.id = id;
     }
 
-    @NotNull
-    @Column(name = "NUMBER")
+
     public String getNumber() {
         return number;
     }
@@ -43,8 +50,7 @@ public class Invoice {
         this.number = number;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Item.class)
-    @JoinColumn(name = "ITEMS")
+
     public List<Item> getItems() {
         return items;
     }
