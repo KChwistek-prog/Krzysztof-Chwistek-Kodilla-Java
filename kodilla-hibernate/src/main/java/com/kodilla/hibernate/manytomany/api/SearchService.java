@@ -18,11 +18,11 @@ public class SearchService {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public List<Company> SearchCompany(String param){
+    public List<Company> searchCompany(String param){
         return companyDao.searchCompanyByNameParam("%"+param+"%");
     }
 
-    public List<Employee> SearchEmployee(String param){
+    public List<Employee> searchEmployee(String param){
         return employeeDao.searchEmployeeByNameParam("%"+param+"%");
     }
 

@@ -95,11 +95,38 @@ class CompanyDaoTestSuite {
     }
 
     @Test
-    void serachNameByGivenParameter() {
+    void searchNameByGivenParameter() {
+        //given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
 
         //when & then
         searchFacade.search("company", "rey");
         searchFacade.search("employee", "arc");
+
+        //CleanUp
+        try {
+            companyDao.deleteById(softwareMachine.getId());
+            companyDao.deleteById(dataMaesters.getId());
+            companyDao.deleteById(greyMatter.getId());
+            employeeDao.deleteById(johnSmith.getId());
+            employeeDao.deleteById(stephanieClarckson.getId());
+            employeeDao.deleteById(lindaKovalsky.getId());
+        } catch (Exception e) {
+            //do nothing
+        }
 
     }
 
@@ -120,6 +147,7 @@ class CompanyDaoTestSuite {
 
         //when
         List<Company> companyResultList = companyDao.searchByParam("Dat");
+
         //CleanUp
         try {
             companyDao.deleteById(softwareMachineId);
