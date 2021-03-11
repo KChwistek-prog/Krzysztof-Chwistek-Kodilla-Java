@@ -11,4 +11,5 @@ include 'kodilla-hibernate'
 include 'kodilla-rps'
 include 'kodilla-paterns2'
 include 'kodilla-jdbc'
+include 'kodilla-testing2'
 
